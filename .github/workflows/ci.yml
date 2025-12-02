@@ -1,0 +1,62 @@
+name: CI
+
+# Trigger the workflow on push events to the main branch or on pull requests
+# targeting the main branch.
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+
+# Define the jobs that will run as part of the workflow.
+jobs:
+  build-and-test:
+    # Use the latest Ubuntu Linux environment for the build.
+    runs-on: ubuntu-latest
+
+    # Define the steps to be executed in this job.
+    steps:
+      # Step 1: Check out the repository code.
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Node.js environment.
+      # Uses Node.js 20.x, which is compatible with Vite and other modern frontend tools.
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm' # Enable caching for npm packages to speed up subsequent runs.
+
+      # Step 3: Install project dependencies.
+      # Uses npm ci for faster, more reliable installations based on the package-lock.json.
+      - name: Install dependencies
+        run: npm ci
+
+      # Step 4: Run linting and formatting checks.
+      # This step ensures code quality and consistency.
+      - name: Lint and Format Check
+        run: npm run lint # Assuming 'lint' script in package.json runs Biome/Ruff.
+
+      # Step 5: Run unit tests.
+      # Uses Vitest for fast unit testing.
+      - name: Run Unit Tests
+        run: npm test # Assuming 'test' script in package.json runs Vitest.
+
+      # Step 6: Build the project.
+      # This step compiles the TypeScript code and bundles assets using Vite.
+      - name: Build Project
+        run: npm run build # Assuming 'build' script in package.json runs Vite build.
+
+      # Step 7: (Optional) Upload build artifacts.
+      # This allows downloading the built application for manual testing or deployment.
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zenithpdf-desktop-app
+          path: dist/ # Adjust path if your build output directory is different.
+
+      # Step 8: (Optional) Run E2E tests if Playwright is configured.
+      # This step requires additional setup for Playwright browser binaries and test execution.
+      # - name: Run End-to-End Tests
+      #   run: npm run e2e # Assuming 'e2e' script in package.json runs Playwright tests.
