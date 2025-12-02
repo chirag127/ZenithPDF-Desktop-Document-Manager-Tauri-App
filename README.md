@@ -1,175 +1,160 @@
-<div align="center">
+# 💎 ZenithPDF-Document-Management-Desktop-App
 
-# 🌟 ZenithPDF: Client-Side Document Management Desktop App
+[![Build Status](https://img.shields.io/github/actions/workflow/status/chirag127/ZenithPDF-Document-Management-Desktop-App/ci.yml?style=flat-square&logo=github)](https://github.com/chirag127/ZenithPDF-Document-Management-Desktop-App/actions/workflows/ci.yml)
+[![Code Coverage](https://img.shields.io/codecov/c/github/chirag127/ZenithPDF-Document-Management-Desktop-App?style=flat-square)](https://codecov.io/gh/chirag127/ZenithPDF-Document-Management-Desktop-App)
+[![Language](https://img.shields.io/github/languages/top/chirag127/ZenithPDF-Document-Management-Desktop-App?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![License](https://img.shields.io/github/license/chirag127/ZenithPDF-Document-Management-Desktop-App?style=flat-square&color=brightgreen)](LICENSE)
+[![GitHub Stars](https://img.shields.io/github/stars/chirag127/ZenithPDF-Document-Management-Desktop-App?style=flat-square&logo=github)](https://github.com/chirag127/ZenithPDF-Document-Management-Desktop-App)
 
-_High-Performance, Privacy-First PDF Toolkit Built with Rust and Tauri_
-
-</div>
-
-<div align="center">
-
-[![CI Build Status](https://img.shields.io/github/actions/workflow/status/chirag127/ZenithPDF-Client-Side-Document-Management-Desktop-App/ci.yml?branch=main&label=CI%20Build&style=flat-square)](https://github.com/chirag127/ZenithPDF-Client-Side-Document-Management-Desktop-App/actions/workflows/ci.yml)
-[![License: CC BY-NC 4.0](https://img.shields.io/github/license/chirag127/ZenithPDF-Client-Side-Document-Management-Desktop-App?style=flat-square&color=blue)](https://github.com/chirag127/ZenithPDF-Client-Side-Document-Management-Desktop-App/blob/main/LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/chirag127/ZenithPDF-Client-Side-Document-Management-Desktop-App?style=flat-square&color=yellow)](https://github.com/chirag127/ZenithPDF-Client-Side-Document-Management-Desktop-App/stargazers)
-[![Framework: Tauri v2](https://img.shields.io/badge/Framework-Tauri%20v2-4c1e4c?style=flat-square&logo=tauri)](https://tauri.app/)
-[![Core: Rust](https://img.shields.io/badge/Core-Rust-DEA584?style=flat-square&logo=rust)](https://www.rust-lang.org/)
-[![Frontend: Vite/TS](https://img.shields.io/badge/Frontend-Vite%2FTS-646CFF?style=flat-square&logo=vite)](https://vitejs.dev/)
-[![Linter: Biome & Clippy](https://img.shields.io/badge/Linter-Biome%20%26%20Clippy-00B2A9?style=flat-square&logo=biome)](https://biomejs.dev/)
-
-<p align="center">
-  <a href="https://github.com/chirag127/ZenithPDF-Client-Side-Document-Management-Desktop-App/stargazers">⭐ Star this Repo</a>
-</p>
-
-</div>
+**Star ⭐ this Repo if you find it useful!**
 
 ---
 
-## 📝 Project Summary (BLUF)
+ZenithPDF is a high-performance, zero-dependency desktop application designed for comprehensive client-side PDF manipulation. Built using the modern **Tauri v2** framework, it delivers native performance while ensuring absolute data privacy by processing all files locally.
 
-**ZenithPDF** is a robust, cross-platform desktop application designed for comprehensive PDF management, utilizing the high performance and security offered by **Rust and Tauri**. It provides essential client-side tooling—including merging, splitting, conversion, and encryption—ensuring that sensitive document data never leaves the user's local machine.
+This repository embodies the **Apex Standard** for desktop application development, focusing on rigorous TypeScript typing, modular architecture, and exceptional user experience.
 
-This architecture guarantees privacy and speed, making ZenithPDF the ideal choice for professional document workflows requiring absolute data sovereignty.
+## 🏛️ Architecture Overview
 
-## 🚀 Features at a Glance
-
-*   **Privacy-First:** All processing is done locally via the high-speed Rust backend; zero cloud dependency.
-*   **PDF Manipulation:** Merge multiple PDFs, split documents by page range, and rearrange pages effortlessly.
-*   **Encryption & Security:** Apply strong password protection and digital signatures to secure sensitive files.
-*   **Conversion Suite:** Convert PDFs to images (PNG, JPEG) and vice-versa, leveraging efficient Rust libraries.
-*   **Cross-Platform:** Deployable on Windows, macOS, and Linux thanks to the Tauri framework.
-*   **Modern UI/UX:** Built with TypeScript, Vite, and TailwindCSS for a responsive and intuitive interface.
-
-## 🏛️ Architecture & Structure
-
-ZenithPDF employs a hybrid architectural approach, separating the UI layer from the performance-critical core logic using Tauri's native bridge.
-
-### Core Architecture Flow (Mermaid)
+The application adheres to a strict **Feature-Sliced Design (FSD)** paradigm, separating the application into distinct, independent layers to maximize maintainability and scalability.
 
 mermaid
 graph TD
-    A[User Interaction] --> B(Tauri Frontend: TS/Vite/Tailwind);
-    B --> C{Tauri IPC Bridge};
-    C --> D[Rust Core (Hexagonal Architecture)];
-    D --> E(PDF Processing Adapters: PDFium/QPDF);
-    E --> F[Local Filesystem I/O];
-    D -.-> G[Validation & Error Handling];
-    G --> C;
-    style D fill:#DEA584,stroke:#333,stroke-width:2px
-    style B fill:#646CFF,stroke:#333,stroke-width:2px
+    subgraph Frontend [Renderer Process (Vite/React)]
+        UI(User Interface/Components)
+        STATE(State Management/Signals)
+    end
+
+    subgraph Backend [Tauri Rust Core]
+        INVOKE(IPC Invoker)
+        FS(File System & OS Access)
+        PDF_CORE(PDF Engine: PDF.js/PDFKit Adapter)
+    end
+
+    subgraph Feature Slices
+        FEATURES(Features: Edit, Convert, Secure)
+        UTILS(Shared Utilities)
+    end
+
+    UI --> STATE
+    UI -- Invoke/Handle --> INVOKE
+    INVOKE -- Bridge --> FS
+    INVOKE -- Bridge --> PDF_CORE
+
+    FEATURES --> UI
+    FEATURES --> UTILS
+
+    PDF_CORE -- Low-Level Ops --> FS
+
+    classDef apex fill:#4a90e2,stroke:#333,stroke-width:2px,color:#fff;
+    class UI,STATE,INVOKE,FS,PDF_CORE,FEATURES,UTILS apex;
 
 
-### Repository File Structure
+## 📋 Table of Contents
 
-text
-ZenithPDF/
-├── .github/          # CI/CD Workflows, Templates, Security Docs
-├── src/              # Frontend (TypeScript/Vite)
-│   ├── components/   # Feature-Sliced Design: Reusable UI elements
-│   ├── features/     # Feature-Sliced Design: Logic units (e.g., pdf-merge, pdf-split)
-│   └── index.tsx
-├── src-tauri/        # Rust Core (The Native Backend)
-│   ├── src/          # Rust Logic (Hexagonal Core)
-│   │   ├── domain/   # Core data structures (PDF File Structs)
-│   │   ├── adapter/  # PDF/I/O Adapters
-│   │   └── lib.rs    # Main entry point and IPC handlers
-│   └── Cargo.toml
-├── README.md
-├── package.json      # Dependencies and Scripts (Vite/TS)
-└── tailwind.config.ts
+1. [💎 ZenithPDF-Document-Management-Desktop-App](#-zenithpdf-document-management-desktop-app)
+2. [🏛️ Architecture Overview](#️-architecture-overview)
+3. [📋 Table of Contents](#-table-of-contents)
+4. [🚀 Key Features](#-key-features)
+5. [🤖 AI Agent Directives (Apex Standard)](#-ai-agent-directives-apex-standard)
+6. [🛠️ Development & Setup](#-development--setup)
+7. [📜 License](#-license)
 
+## 🚀 Key Features
 
-## 🛠️ Getting Started
+*   **High-Fidelity PDF Editing:** Inline text modification, annotation support, and layout adjustments.
+*   **Universal Conversion:** Convert PDFs to standard image formats (PNG, JPEG) and document formats (DOCX, TXT) locally.
+*   **Security & Privacy:** Client-side encryption/decryption and password protection leveraging Rust's secure primitives.
+*   **Batch Processing:** Efficiently handle merges, splits, and compressions for large document sets.
+*   **Native Performance:** Built with Tauri and Rust for near-native speed and minimal resource consumption.
 
-### Prerequisites
-
-Ensure you have Rust (stable), Node.js (LTS), and the required Tauri dependencies installed for your target OS.
-
-### 1. Cloning the Repository
-
-bash
-git clone https://github.com/chirag127/ZenithPDF-Client-Side-Document-Management-Desktop-App.git
-cd ZenithPDF-Client-Side-Document-Management-Desktop-App
-
-
-### 2. Frontend Setup (TypeScript/Vite)
-
-We recommend using `uv` for fast Python environment management if you use the built-in bundler, but for Node dependencies:
-
-bash
-# Install Node dependencies
-npm install
-
-
-### 3. Running in Development Mode
-
-This command simultaneously starts the Vite frontend server and the Tauri Rust application shell.
-
-bash
-npm run tauri dev
-
-
-### 4. Building Production Binaries
-
-To create optimized, platform-specific installers (MSI, DMG, AppImage):
-
-bash
-# Build the production application
-npm run tauri build
-
-
-## 🤖 AI Agent Directives
+## 🤖 AI Agent Directives (Apex Standard)
 
 <details>
-<summary>APEX SYSTEM INTEGRATION PROTOCOL (FOR AI & AUTOMATION ENGINES)</summary>
+<summary>Click to view Apex Architecture & Verification Commands</summary>
 
 # SYSTEM: APEX TECHNICAL AUTHORITY & ELITE ARCHITECT (DECEMBER 2025 EDITION)
 
 ## 1. IDENTITY & PRIME DIRECTIVE
+**Role:** You are a Senior Principal Software Architect and Master Technical Copywriter with **40+ years of elite industry experience**. You operate with absolute precision, enforcing FAANG-level standards and the wisdom of "Managing the Unmanageable."
+**Context:** Current Date is **December 2025**. You are building for the 2026 standard.
+**Output Standard:** Deliver **EXECUTION-ONLY** results. No plans, no "reporting"—only executed code, updated docs, and applied fixes.
+**Philosophy:** "Zero-Defect, High-Velocity, Future-Proof."
 
-**Role:** You are a Senior Principal Software Architect operating with absolute precision. Your objective is to maintain and extend the high-performance, secure core of ZenithPDF.
+--- 
 
-**Context:** Target Stack: **Rust/Tauri/TypeScript/Vite**. All modifications must prioritize security, performance, and client-side processing integrity.
+## 2. INPUT PROCESSING & COGNITION
+*   **SPEECH-TO-TEXT INTERPRETATION PROTOCOL:**
+    *   **Context:** User inputs may contain phonetic errors (homophones, typos).
+    *   **Semantic Correction:** **STRICTLY FORBIDDEN** from executing literal typos. You must **INFER** technical intent based on the project context.
+    *   **Logic Anchor:** Treat the `README.md` as the **Single Source of Truth (SSOT)**.
+*   **MANDATORY MCP INSTRUMENTATION:**
+    *   **No Guessing:** Do not hallucinate APIs. Do not rely on deprecated libraries.
+    *   **Research First:** Use `linkup`/`brave` to search for **December 2025 Industry Standards**, **Security Threats**, and **2026 UI Trends** specifically related to **Tauri/TypeScript Desktop Apps**.
+    *   **Validation:** Use `docfork` to verify *every* external API signature, especially Tauri commands.
+    *   **Reasoning:** Engage `clear-thought-two` to architect complex inter-process communication (IPC) flows *before* writing Rust/TS bindings.
 
-## 2. APEX TECH STACKS & ARCHITECTURAL PATTERNS
+--- 
 
-### PRIMARY SCENARIO: DESKTOP APPLICATION (Rust/Tauri)
+## 3. CONTEXT-AWARE APEX TECH STACKS (LATE 2025 STANDARDS)
+**Directives:** This repository, `ZenithPDF-Document-Management-Desktop-App`, is a **Web/App/GUI** project.
 
-*   **Core Stack:** Uses **Rust 1.70+** for the native core and IPC logic via the Tauri bridge. The frontend leverages **TypeScript 5.x**, **Vite 5**, and **TailwindCSS v4 (JIT)**.
-*   **Package Management:** **`cargo`** (Rust dependencies) and **`npm`/`pnpm`** (Frontend dependencies).
-*   **Architectural Pattern:**
-    *   **Rust Core:** Strictly adheres to **Hexagonal Architecture (Ports & Adapters)**. All PDF operation logic is separated into decoupled services (Adapters) called via well-defined traits (Ports) defined in the domain layer.
-    *   **TypeScript Frontend:** Follows **Feature-Sliced Design (FSD)** for structure, ensuring modularity and clear dependency flow (`app -> pages -> widgets -> features -> shared`).
-*   **Security Principle:** **Zero Trust.** All IPC inputs must be validated on the Rust side before execution. All file I/O operations must be wrapped in robust error handling.
+*   **PRIMARY SCENARIO: WEB / APP / GUI (Modern Frontend)**
+    *   **Stack:** **TypeScript 6.x (Strict, utilizing Node/TS compiler flags at level 90+)**, **Vite 7** (build optimization), **TailwindCSS v4** (utility-first styling), and **Tauri v2.x** (Desktop host).
+    *   **Lint/Test:** **Biome** (Lint/Format Speed) + **Vitest** (Unit Testing) + **Playwright** (E2E Testing for UI flows).
+    *   **Architecture:** Adheres strictly to **Feature-Sliced Design (FSD)**, ensuring that Presentation, Features, Entities, and Shared layers are mutually exclusive and maintain explicit dependencies.
 
-### 3. TESTING, LINTING & VERIFICATION
 
-*   **Rust Validation:** Use **`cargo clippy`** for static analysis and ensuring idiomatic Rust code.
-*   **Frontend Validation:** Use **`biome check --apply`** for ultra-fast TypeScript formatting and linting.
-*   **Testing Frameworks:**
-    *   **Rust Unit/Integration:** Standard `cargo test` framework.
-    *   **TypeScript Unit:** **Vitest** for frontend component logic.
-    *   **E2E/Desktop:** **Tauri Test Runner** (based on Playwright) for verifying native desktop functionalities.
+## 4. ARCHITECTURAL MANDATES
+1.  **SOLID Adherence:** Interfaces must be clearly separated (Interface Segregation Principle). State mutation must be centralized (Single Responsibility Principle).
+2.  **DRY Principle Enforcement:** Custom PDF handling logic must be abstracted into isolated Rust sidecars accessible via Tauri IPC, preventing duplication in TypeScript logic.
+3.  **YAGNI/KISS:** Maintain minimal dependencies. Only use dependencies that are essential for PDF rendering or OS interaction (e.g., `tauri-plugin-fs`, `pdfjs-dist` compatibility layer).
+4.  **Security:** All IPC communication channels must be strongly typed and validated on the Rust side to prevent injection attacks from the renderer.
 
-*   **Verification Commands (Required before PR Submission):**
+## 5. VERIFICATION COMMANDS (Run from root directory)
+*   **Build & Lint Check (Fast Check):**
     bash
-    # Frontend check
     npm run lint
     npm run test:unit
-
-    # Rust core check
-    cargo clippy -- -D warnings
-    cargo test
     
-
+*   **Full CI Simulation (Includes E2E):**
+    bash
+    npm run ci:verify
+    
+*   **Tauri Native Build Check:**
+    bash
+    cargo check --workspace
+    
 </details>
 
-## 🤝 Contribution Guidelines
+## 🛠️ Development & Setup
 
-We welcome high-quality contributions! Please review the documents in the `.github` directory before submitting issues or pull requests.
+This project requires Node.js (v20+ recommended), Rust, and the Tauri CLI prerequisites.
 
-*   [Contributing Guide](https://github.com/chirag127/ZenithPDF-Client-Side-Document-Management-Desktop-App/blob/main/.github/CONTRIBUTING.md)
-*   [Code of Conduct](https://github.com/chirag127/ZenithPDF-Client-Side-Document-Management-Desktop-App/blob/main/.github/CODE_OF_CONDUCT.md)
+### Prerequisites
+1.  Install Node.js and Rust.
+2.  Ensure Cargo is installed via `rustup`.
 
-## 📄 License
+### Installation
+bash
+git clone https://github.com/chirag127/ZenithPDF-Document-Management-Desktop-App.git
+cd ZenithPDF-Document-Management-Desktop-App
 
-This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)** License. See the [LICENSE](https://github.com/chirag127/ZenithPDF-Client-Side-Document-Management-Desktop-App/blob/main/LICENSE) file for details.
+# Use uv for blazing fast dependency resolution (2026 Standard)
+npm install
+
+# (Note: Rust dependencies for Tauri are managed via Cargo, check Cargo.toml)
+
+
+### Development Commands
+| Command | Description | Standard | 
+| :--- | :--- | :--- | 
+| `npm run dev` | Start the Vite development server with Tauri hot reloading. | Local Dev | 
+| `npm run build` | Compiles the application for production release. | Build | 
+| `npm run test:unit` | Runs all Jest/Vitest unit tests across TS modules. | Test | 
+| `npm run test:e2e` | Executes end-to-end validation using Playwright. | Test | 
+| `npm run format` | Applies Biome formatting rules across the codebase. | Lint/Style |
+
+## 📜 License
+
+This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International License**. See the [LICENSE](LICENSE) file for details.
