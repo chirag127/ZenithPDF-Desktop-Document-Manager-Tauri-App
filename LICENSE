@@ -1,15 +1,90 @@
-Copyright (c) 2024 chirag127
+This work is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License.
 
-This work is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc/4.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+To view a copy of this license, visit http://creativecommons.org/licenses/by-nc/4.0/.
 
---- 
+-----------------------------------------------------------------------------
 
-**Summary of Terms:**
+## Creative Commons Attribution-NonCommercial 4.0 International
 
-**Attribution (BY):** You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+By exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms of this Creative Commons Attribution-NonCommercial 4.0 International Public License ("Public License").
 
-**NonCommercial (NC):** You may not use the material for commercial purposes.
+### 1. Definitions
 
-**No Derivatives (ND):** If you remix, transform, or build upon the material, you may not distribute the modified material.
+*   **Adapted Material** means material subject to Copyright or other applicable rights derived from or based upon the Licensed Material and in which such Derivatives are not the sole Creative Commons Attribution-NonCommercial 4.0 International
 
-**This repository is provided AS IS, without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement.
+*   **Collection** means a collection of separate and independent works or other material assembled into a collective whole.
+
+*   **Derivative Works** means works based upon the Licensed Material and in which the Licensed Material is translated, altered, adapted, or otherwise modified in a manner requiring permission under the laws governing the Licensed Material.
+
+*   **Licensed Material** means the material, whether or not copyrighted, which is made available under this Public License. The terms of this Public License apply to all subject matter described in Section 4(A) whether or not the subject matter is specifically designated as "Licensed Material" below.
+
+*   **Licensed Rights** means the rights granted under this Public License, which are limited to the following:
+    *   The right to Reproduce and Share the Licensed Material, in whole or in part, for NonCommercial purposes only;
+    *   The right to create and Share Adapted Material for NonCommercial purposes only.
+
+*   **NonCommercial** means not primarily intended for or directed towards commercial advantage or monetary compensation.
+
+*   **Publicly Perform** means to perform Licensed Material at a venue or location, by means of a device or process, or by means of any device or process; to transmit or otherwise communicate performances of Licensed Material to the public by any means or process, whether the recipient’s access to the performance is provided by the recipient’s choice or at the service provider’s choice.
+
+*   **Share** means to provide copies of the Licensed Material or Adapted Material to others, whether by sale, rental, lease, or otherwise.
+
+*   **Suitable Medium or Format** means any reliable means or format for storing and accessing the Licensed Material or Adapted Material.
+
+*   **Adapted Material** means material subject to Copyright or other applicable rights derived from or based upon the Licensed Material and in which such Derivatives are not the sole Creative Commons Attribution-NonCommercial 4.0 International
+
+*   **You** means the individual or entity exercising the Licensed Rights under this Public License. Your“ (or "your") refers to you.
+
+### 2. Scope
+
+This Public License applies to the Work, and incorporates by reference, any other terms, conditions, notices, or clauses contained in or attached to the Work that are incorporated herein by reference and are consistent with this Public License. If there is a conflict between the terms of this Public License and any such incorporated terms, conditions, notices, or clauses, this Public License shall prevail to the extent of the conflict.
+
+### 3. Grant of Rights
+
+Subject to the terms and conditions of this Public License, the Licensor hereby grants to You a worldwide, royalty-free, non-exclusive, perpetual (for the duration, elsewhere subject to the termination provisions of this Public License) license to exercise the Licensed Rights in the Licensed Material.
+
+### 4. Restrictions
+
+Your exercise of the Licensed Rights is subject to the following restrictions:
+
+*   You may not exercise any of the Licensed Rights for Commercial purposes.
+*   You may not exercise any of the Licensed Rights for the purpose of or in connection with advertising or promoting any product or service.
+*   You may not exercise any of the Licensed Rights to solicit business from any person or entity.
+*   You may not exercise any of the Licensed Rights in a manner that is misleading, deceptive, or promotes illegal acts.
+*   You may not sublicense the Licensed Material, or authorize any person or entity to exercise any of the Licensed Rights, without the prior written consent of the Licensor.
+
+### 5. Representations and Warranties
+
+Licensor represents and warrants that, to the best of Licensor’s knowledge, the Licensed Material does not infringe the copyright or other intellectual property rights of any third party.
+
+### 6. Disclaimer of Warranty and Limitation of Liability
+
+THE LICENSED MATERIAL IS PROVIDED "AS IS" AND "WITH ALL FAULTS." LICENSOR MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND CONCERNING THE LICENSED MATERIAL, EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING WITHOUT LIMITATION WARRANTIES OF TITLE, MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR THE ABSENCE OF LATENT OR OTHER DEFECTS, ACCURACY, OR THE PRESENCE OR ABSENCE OF ERRORS, WHETHER OR NOT DETECTABLE BY YOU.
+
+SOME JURISDICTIONS DO NOT ALLOW THE DISCLAIMER OF IMPLIED WARRANTIES OR LIMITATION OF LIABILITY FOR CERTAIN MATTERS, SO THE ABOVE DISCLAIMER MAY NOT APPLY TO YOU TO THE EXTENT SUCH JURISDICTION’S LAW IS CONTRARY TO THE TERMS OF THIS LICENSE.
+
+### 7. Term and Termination
+
+This Public License applies to the Work from the date You first exercise any Licensed Right in the Work until the term is terminated as stated below.
+
+If You breach this Public License, termination occurs automatically. However, if You have taken steps to cure the breach, and the breach is cured within thirty (30) days of the first time You became aware of the breach, this Public License shall remain in effect. 
+
+### 8. Governing Law
+
+This Public License shall be governed by and construed in accordance with the laws of the jurisdiction in which the Licensor has its principal place of business. You agree to submit to the personal jurisdiction of the courts located in that jurisdiction for the resolution of any disputes arising out of or relating to this Public License.
+
+### 9. Other Terms
+
+*   **Attribution:** If You Share the Licensed Material or Adapted Material, You must:
+    *   Provide a copy of this Public License.
+    *   Give appropriate credit to the Licensor, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the Licensor endorses You or Your use.
+    *   You may not suggest that the Licensor endorses You or Your use of the Licensed Material or Adapted Material.
+*   **No Warranty:** You may not assert or imply that You have any rights to or ownership of the Licensed Material.
+*   **No Endorsement:** You may not suggest that the Licensor endorses You or Your use of the Licensed Material or Adapted Material.
+
+-----------------------------------------------------------------------------
+
+## Full Legal Text
+
+For the full legal text of the Creative Commons Attribution-NonCommercial 4.0 International Public License, please visit:
+
+[https://creativecommons.org/licenses/by-nc/4.0/legalcode](https://creativecommons.org/licenses/by-nc/4.0/legalcode)
